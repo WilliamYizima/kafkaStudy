@@ -11,9 +11,9 @@ docker-compose up -d
 ```
 
 ## Validate services:
--> control-center (KafkaUI): http://localhost:9021
--> kibana(elasticSearchUI):  http://localhost:5601/
--> Connect in database Postgre (you can use Dbaver):
+- control-center (KafkaUI): http://localhost:9021
+- kibana(elasticSearchUI):  http://localhost:5601/
+- Connect in database Postgre (you can use Dbaver):
     - user: postgres
     - pass: secretpassword
 
