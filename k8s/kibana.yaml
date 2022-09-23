@@ -7,7 +7,7 @@ spec:
   count: 1
   config:
     elasticsearch.hosts:
-      - http://52.184.206.239:9200
+      - http://xxxxx:9200
     elasticsearch.username: elastic
   http:
     service:
