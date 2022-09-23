@@ -15,3 +15,22 @@ echo $PASSWORD
 kubectl create secret generic kibana-elasticsearch-credentials --from-literal=elasticsearch.password=$PASSWORD
 https://localhost:5601
 
+```
+curl -u "elastic:$PASSWORD"  -X POST "http://52.184.206.239:9200/_security/role/es_sink_connector_role?pretty" -H 'Content-Type: application/json' -d'
+{
+  "indices": [
+    {
+      "names": [ "*" ],
+      "privileges": ["create_index", "read", "write", "view_index_metadata"]
+    }
+  ]
+}'
+```
+
+```
+curl -u elastic:$PASSWORD"  -X POST "http://52.184.206.239:9200/_security/user/es_sink_connector_user?pretty" -H 'Content-Type: application/json' -d'
+{
+  "password" : "mw5w1vm3Y6650vm1EW8wXh4l",
+  "roles" : [ "es_sink_connector_role" ]
+}'
+```

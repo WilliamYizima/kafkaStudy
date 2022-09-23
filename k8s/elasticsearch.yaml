@@ -5,7 +5,7 @@ metadata:
   labels:
     app: es01
 spec:
-  version: 7.6.2
+  version: 7.14.1
   nodeSets:
   - name: master
     count: 1
