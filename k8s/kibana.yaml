@@ -1,0 +1,23 @@
+apiVersion: kibana.k8s.elastic.co/v1
+kind: Kibana
+metadata:
+  name: es01
+spec:
+  version: 7.6.2
+  count: 1
+  config:
+    elasticsearch.hosts:
+      - http://20.22.62.246:9200
+    elasticsearch.username: elastic
+  http:
+    service:
+      spec:
+        type: LoadBalancer
+        ports:
+          - port: 5601 # onde vai ouvir dentro do cluster
+            targetPort: 5601 # onde vai ouvir dentro do cluster
+            nodePort: 32766
+  secureSettings:
+    - secretName: kibana-elasticsearch-credentials
+  # elasticsearchRef:
+  #   name: es01
