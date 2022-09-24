@@ -1,17 +1,17 @@
 import { Injectable } from '@nestjs/common';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
-import { Product } from './entities/product.model';
+import { SearchHelper } from './entities/product.model';
 import { DefaultCrudRepository } from '@loopback/repository';
 import { EsDataSourceService } from 'src/es-data-source/es-data-source.service';
 
 @Injectable()
 export class ProductsService extends DefaultCrudRepository<
-  Product,
-  typeof Product.prototype.id
+  SearchHelper,
+  typeof SearchHelper.prototype.id
 > {
   constructor(dataSource: EsDataSourceService) {
-    super(Product, dataSource);
+    super(SearchHelper, dataSource);
   }
   // create(createProductDto: CreateProductDto) {
   //   return 'This action adds a new product';

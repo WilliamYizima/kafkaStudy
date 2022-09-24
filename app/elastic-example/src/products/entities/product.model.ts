@@ -4,14 +4,14 @@ import { Entity, model, property } from '@loopback/repository';
 //UUID
 
 @model()
-export class Product extends Entity {
+export class SearchHelper extends Entity {
   @property({
     type: 'string',
     id: true,
     generated: false,
     required: false,
   })
-  id: string;
+  _id: string;
 
   @property({
     type: 'string',
@@ -19,7 +19,13 @@ export class Product extends Entity {
   })
   describe: string;
 
-  constructor(data?: Partial<Product>) {
+  @property({
+    type: 'number',
+    required: true,
+  })
+  id: number;
+
+  constructor(data?: Partial<SearchHelper>) {
     super(data);
   }
 }

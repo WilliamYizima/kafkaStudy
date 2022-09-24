@@ -13,14 +13,24 @@ export class EsDataSourceService extends juggler.DataSource {
     return {
       name: 'esv7',
       connector: 'esv6',
-      index: 'my_index',
+      index: 'postgres.public.newtable',
       version: 7,
       debug: true,
       defaultSize: 50,
       configuration: {
-        node: 'http://localhost:9200',
+        node: 'http://52.184.206.239:9200',
+        auth: {
+          username: 'elastic',
+          password: 'mw5w1vm3Y6650vm1EW8wXh4l',
+        },
         requestTimeout: 30000,
         pingTimeout: 3000,
+      },
+      mappingProperties: {
+        docType: {
+          type: 'keyword',
+          index: false,
+        },
       },
     };
   }
